@@ -22,3 +22,13 @@ func (s *MemStorage) CounterInc(name string, val int64) {
 	}
 	s.counter[name] += val
 }
+
+func (s *MemStorage) GetGauge(name string) (float64, bool) {
+	val, ok := s.gauge[name]
+	return val, ok
+}
+
+func (s *MemStorage) GetCounter(name string) (int64, bool) {
+	val, ok := s.counter[name]
+	return val, ok
+}
