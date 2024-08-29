@@ -1,7 +1,7 @@
 package update
 
 import (
-	"github.com/enshxx/GoMetricsHub/internal/storage/memStorage"
+	"github.com/enshxx/GoMetricsHub/internal/storage/memstorage"
 	"net/http"
 	"strconv"
 	"strings"
@@ -15,7 +15,7 @@ func compileURL(path string) (string, string, string, int) {
 	return params[0], params[1], params[2], 0
 }
 
-func Handler(storage memStorage.MemStorage) http.HandlerFunc {
+func Handler(storage memstorage.MemStorage) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			http.Error(w, "only POST requests are allowed", http.StatusMethodNotAllowed)
