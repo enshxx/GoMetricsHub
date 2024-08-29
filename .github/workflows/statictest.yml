@@ -30,4 +30,5 @@ jobs:
 
       - name: Run statictest
         run: |
+          ls -R
           go vet -vettool=$(which statictest) ./GoMetricsHub/...
