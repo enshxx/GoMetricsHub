@@ -30,4 +30,4 @@ jobs:
 
       - name: Run statictest
         run: |
-          go vet -vettool=$(which statictest) ./GoMetricsHub/... -ignore-dir/usr/local/go
+          go vet -vettool=$(which statictest) ./GoMetricsHub/...
