@@ -24,7 +24,7 @@ func Handler(storage memstorage.MemStorage) http.HandlerFunc {
 		}
 		mType, name, value, errCode := compileURL(r.URL.String())
 		if errCode != 0 {
-			http.Error(w, "", http.StatusNotFound)
+			http.Error(w, "", errCode)
 			return
 		}
 		switch mType {

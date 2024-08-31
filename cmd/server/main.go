@@ -9,7 +9,7 @@ import (
 func main() {
 	storage := memstorage.New()
 	mux := http.NewServeMux()
-	mux.Handle("/update/", http.StripPrefix(`/update/`, update.Handler(storage)))
+	mux.Handle("/update/", http.StripPrefix(`/update`, update.Handler(storage)))
 	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
 		panic(err)
