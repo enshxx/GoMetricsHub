@@ -34,14 +34,14 @@ func Handler(storage memstorage.MemStorage) http.HandlerFunc {
 				http.Error(w, "invalid gauge value", http.StatusBadRequest)
 				return
 			}
-			storage.GaugeSet(name, v)
+			storage.AddGauge(name, v)
 		case "counter":
 			v, err := strconv.ParseInt(value, 10, 64)
 			if err != nil {
 				http.Error(w, "invalid counter value", http.StatusBadRequest)
 				return
 			}
-			storage.CounterInc(name, v)
+			storage.AddCounter(name, v)
 		default:
 			http.Error(w, "invalid metric type", http.StatusBadRequest)
 			return
